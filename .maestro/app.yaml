@@ -1,0 +1,25 @@
+appId: com.raumain.citydiscover
+---
+- launchApp
+- assertVisible: "City discovery"
+- assertVisible: "Coverage"
+- assertVisible: "Start walk session"
+
+# Tap to Stats tab
+- tapOn:
+    id: "Stats" # Assumes Expo Router standard tab bar accessibility
+    optional: true
+- tapOn: "Stats"
+
+- assertVisible: "Steps"
+- assertVisible: "Kilometers"
+- assertVisible: "Cumulative discovery"
+
+# Tap to Settings tab
+- tapOn:
+    id: "Settings"
+    optional: true
+- tapOn: "Settings"
+
+- assertVisible: "Settings"
+- assertVisible: "About"

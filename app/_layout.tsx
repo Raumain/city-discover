@@ -5,6 +5,12 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'YOUR-SENTRY-DSN', // Replace with real DSN
+  debug: false,
+});
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -21,7 +27,7 @@ export const unstable_settings = {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -44,6 +50,8 @@ export default function RootLayout() {
 
   return <RootLayoutNav />;
 }
+
+export default Sentry.wrap(RootLayout);
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();

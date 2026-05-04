@@ -14,9 +14,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.raumain.citydiscover"
     },
     "android": {
+      "package": "com.raumain.citydiscover",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -30,7 +32,27 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "your-sentry-org",
+          "project": "city-discover-app"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow City Discover to access your location while walking to track discovered streets.",
+          "locationWhenInUsePermission": "Allow City Discover to access your location while walking to track discovered streets.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true,
+          "foregroundService": {
+            "notificationTitle": "City Discover is tracking your walk",
+            "notificationBody": "Tracking active street discovery in the background."
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
