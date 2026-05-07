@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "Sentry": {
+      "url": "https://mcp.sentry.dev/mcp/raumain/react-native",
+      "type": "http"
+    }
+  }
+}

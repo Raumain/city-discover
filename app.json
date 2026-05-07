@@ -34,13 +34,6 @@
     "plugins": [
       "expo-router",
       [
-        "@sentry/react-native/expo",
-        {
-          "organization": "your-sentry-org",
-          "project": "city-discover-app"
-        }
-      ],
-      [
         "expo-location",
         {
           "locationAlwaysAndWhenInUsePermission": "Allow City Discover to access your location while walking to track discovered streets.",
@@ -52,10 +45,25 @@
             "notificationBody": "Tracking active street discovery in the background."
           }
         }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "react-native",
+          "organization": "raumain"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "appProfile": "development",
+      "router": {},
+      "eas": {
+        "projectId": "e698b7e5-cd8a-4ae8-9710-ee9952232c4a"
+      }
     }
   }
 }

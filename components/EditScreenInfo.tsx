@@ -1,16 +1,22 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 
+import * as Sentry from '@sentry/react-native';
 import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
 import Colors from '@/constants/Colors';
+import { Link } from 'expo-router';
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
     <View>
       <View style={styles.getStartedContainer}>
+      <Button title='Try!' onPress={ () => { Sentry.captureException(new Error('First error')) }}/>
+        <Link href="/(tabs)/stats" >
+                  <Text >Go to home screen!</Text>
+                </Link>
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
